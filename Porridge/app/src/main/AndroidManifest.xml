@@ -24,8 +24,8 @@
         <activity
             android:name=".MainActivity"
             android:logo="@mipmap/ic_launcher"
-            android:screenOrientation="locked"
-            />
+            android:screenOrientation="locked">
+        </activity>
 
         <activity
             android:name=".Guide"
@@ -40,14 +40,18 @@
 
         <activity
             android:name=".Register"
-            android:parentActivityName=".Guide">
+            android:parentActivityName=".Guide"
+            android:screenOrientation="locked">
         </activity>
         <activity
             android:name=".Login"
-            android:parentActivityName=".Guide">
+            android:parentActivityName=".Guide"
+            android:screenOrientation="locked">
         </activity>
 
-        <activity android:name=".NoticeDetail" />
+        <activity
+            android:name=".NoticeDetail"
+            android:screenOrientation="locked"/>
     </application>
 
 </manifest>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
+    android:layout_height="50dp"
     android:background="#000000"
     android:orientation="horizontal">
 
@@ -25,10 +25,11 @@
 
         <TextView
             android:id="@+id/bottom_tv1"
+            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="关注" />
+            android:text="发现" />
     </LinearLayout>
 
     <LinearLayout
@@ -51,10 +52,11 @@
 
         <TextView
             android:id="@+id/bottom_tv2"
+            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="发现" />
+            android:text="关注" />
     </LinearLayout>
 
     <LinearLayout
@@ -74,10 +76,11 @@
             android:background="#00000000"
             android:clickable="false"
             android:scaleType="fitCenter"
-            android:src="@drawable/tab02_normal" />
+            android:src="@drawable/tab03_normal" />
 
         <TextView
             android:id="@+id/bottom_tv3"
+            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -105,6 +108,7 @@
 
         <TextView
             android:id="@+id/bottom_tv4"
+            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -133,10 +137,11 @@
 
         <TextView
             android:id="@+id/bottom_tv5"
+            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="个人" />
+            android:text="我的" />
     </LinearLayout>
 
 </LinearLayout>
