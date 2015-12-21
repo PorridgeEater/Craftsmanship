@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="hyman_icon" format="reference"></attr>
+    <attr name="hyman_color" format="color"></attr>
+    <attr name="hyman_text" format="string"></attr>
+    <attr name="hyman_text_size" format="dimension"></attr>
+
+    <declare-styleable name="ChangeColorWithText">
+        <attr name="hyman_icon" ></attr>
+        <attr name="hyman_color"></attr>
+        <attr name="hyman_text"></attr>
+        <attr name="hyman_text_size"></attr>
+    </declare-styleable>
+
+</resources>

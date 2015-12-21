@@ -1,0 +1,16 @@
+com.nostra13.universalimageloader.cache.disc
+com.nostra13.universalimageloader.cache.disc.impl
+com.nostra13.universalimageloader.cache.disc.impl.ext
+com.nostra13.universalimageloader.cache.disc.naming
+com.nostra13.universalimageloader.cache.memory
+com.nostra13.universalimageloader.cache.memory.impl
+com.nostra13.universalimageloader.core
+com.nostra13.universalimageloader.core.assist
+com.nostra13.universalimageloader.core.assist.deque
+com.nostra13.universalimageloader.core.decode
+com.nostra13.universalimageloader.core.display
+com.nostra13.universalimageloader.core.download
+com.nostra13.universalimageloader.core.imageaware
+com.nostra13.universalimageloader.core.listener
+com.nostra13.universalimageloader.core.process
+com.nostra13.universalimageloader.utils

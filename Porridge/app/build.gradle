@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    //为了解决部分第三方库重复打包了META-INF的问题
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+    lintOptions {
+        abortOnError false
+    }
+
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        applicationId "leadroyal.porridge"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    //avoscloud-sdk 为 LeanCloud基础包
+    //avoscloud-push 与 Java-WebSocket 为推送与IM需要的包
+    //avoscloud-statistics 为 LeanCloud 统计包
+    //avoscloud-feedback 为 LeanCloud 用户反馈包
+    //avoscloud-sns 为 LeanCloud 第三方登陆包
+    //avoscloud-search 为 LeanCloud 应用内搜索包
+    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'cn.leancloud.android:avoscloud-sdk:v3.+'
+    compile 'cn.leancloud.android:avoscloud-push:v3.+@aar'
+    compile 'cn.leancloud.android:Java-WebSocket:1.2.0-leancloud'
+    compile 'cn.leancloud.android:avoscloud-statistics:v3.+@aar'
+    compile 'cn.leancloud.android:avoscloud-feedback:v3.+@aar'
+    compile 'cn.leancloud.android:avoscloud-sns:v3.+@aar'
+    compile 'cn.leancloud.android:qq-sdk:1.6.1-leancloud'
+    compile 'cn.leancloud.android:avoscloud-search:v3.+@aar'
+    compile 'com.android.support:design:23.1.0'
+    compile files('src/main/libs/universal-image-loader-1.9.5.jar')
+    compile files('src/main/libs/universal-image-loader-1.9.5-javadoc.jar')
+    compile files('src/main/libs/universal-image-loader-1.9.5-sources.jar')
+}
