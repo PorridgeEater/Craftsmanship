@@ -28,7 +28,7 @@
 
 
     <GridView
-        android:padding="15dp"
+        android:layout_marginTop="5dp"
         android:id="@+id/notice_grid"
         android:layout_width="match_parent"
         android:layout_height="0dp"

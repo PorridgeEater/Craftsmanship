@@ -99,35 +99,34 @@ public class Tab02 extends Fragment{
 
                     AVQuery<AVObject> query;
                     query = new AVQuery<AVObject>("Article");
-                    query.orderByDescending("createdAt" );
-                    query.whereEqualTo("objectId", idArray.get(0));
+                    query.orderByDescending("createdAt");
 
-                    query.findInBackground(
-                            new FindCallback<AVObject>() {
-                                public void done(List<AVObject> list, AVException e) {
-                                    if (e == null) {
-                                        //Toast.makeText(getActivity(), "tttttt"+list.size(), Toast.LENGTH_SHORT).show();
-
-                                        mDataArray.clear();
-                                        String s[] = {"pic1", "pic2", "pic3", "pic4", "pic5", "pic6", "pic7", "pic8", "pic9"};
-                                        for (int i = 0; i < list.size(); i++) {
-                                            //Log.d("LeadroyaL-->", list.get(i).getAVFile("pic1").getUrl());
-                                            NoticeEntity entity = new NoticeEntity();
-                                            //entity.setPrice();
-                                            for (int j = 0; j < 9; j++)
-                                                if (list.get(i).getAVFile(s[j]) != null)
-                                                    entity.setImageSrc(list.get(i).getAVFile(s[j]).getUrl(), j);
-                                            entity.setAVO(list.get(i));
-                                            entity.setTxt(list.get(i).getString("content"));
-                                            mDataArray.add(entity);
+                    mDataArray.clear();
+                    for ( int i=0; i<idArray.size(); i++ ) {
+                        query.whereEqualTo("objectId", idArray.get(i));
+                        query.findInBackground(
+                                new FindCallback<AVObject>() {
+                                    public void done(List<AVObject> list, AVException e) {
+                                        if (e == null) {
+                                            String s[] = {"pic1", "pic2", "pic3", "pic4", "pic5", "pic6", "pic7", "pic8", "pic9"};
+                                            for (int i = 0; i < list.size(); i++) {
+                                                NoticeEntity entity = new NoticeEntity();
+                                                for (int j = 0; j < 9; j++)
+                                                    if (list.get(i).getAVFile(s[j]) != null)
+                                                        entity.setImageSrc(list.get(i).getAVFile(s[j]).getUrl(), j);
+                                                entity.setAVO(list.get(i));
+                                                entity.setTxt(list.get(i).getString("content"));
+                                                mDataArray.add(entity);
+                                            }
+                                            mAdapter.notifyDataSetChanged();
+                                        } else {
+                                            LogUtil.log.d("失败", "查询错误: " + e.getMessage());
                                         }
-                                        mAdapter.notifyDataSetChanged();
-                                    } else {
-                                        LogUtil.log.d("失败", "查询错误: " + e.getMessage());
                                     }
                                 }
-                            }
-                    );
+                        );
+                    }
+
 
 
 

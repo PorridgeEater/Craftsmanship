@@ -42,11 +42,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sign_in_button:
-                login.setText("登录中");
+                Toast.makeText(getApplicationContext(), "登陆中...", Toast.LENGTH_SHORT).show();
                 if (!user.getText().toString().isEmpty() && !user.getText().toString().trim().isEmpty())
                     AVUser.logInInBackground(user.getText().toString(), psw.getText().toString(), new LogInCallback() {
                         public void done(AVUser user, AVException e) {
-                            if (user != null) {
+                            if (e==null && user!=null) {
                                 //登录成功
                                 Toast.makeText(getApplicationContext(), "登陆成功!", Toast.LENGTH_SHORT).show();
                                 show_main_screen();
