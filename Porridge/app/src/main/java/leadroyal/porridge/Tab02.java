@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Tab02 extends Fragment{
+public class Tab02 extends Fragment implements View.OnClickListener {
 
     private GridView mGridView;
     private NoticeAdapter mAdapter;
@@ -69,6 +69,12 @@ public class Tab02 extends Fragment{
                 startActivity(intent);
             }
         });
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        refresh();
     }
 
     private void refresh() {
@@ -116,6 +122,7 @@ public class Tab02 extends Fragment{
                                                         entity.setImageSrc(list.get(i).getAVFile(s[j]).getUrl(), j);
                                                 entity.setAVO(list.get(i));
                                                 entity.setTxt(list.get(i).getString("content"));
+                                                entity.setPrice(list.get(i).getString("price"));
                                                 mDataArray.add(entity);
                                             }
                                             mAdapter.notifyDataSetChanged();
@@ -189,7 +196,7 @@ public class Tab02 extends Fragment{
                 mLoader.init(mConfig);
                 mLoader.getInstance().displayImage(data.get(position).getImageSrc(0), viewHolder.imgView, options, null);
                 viewHolder.txt.setText(data.get(position).getTxt());
-                viewHolder.price.setText("￥" + data.get(position).getPrice());
+                viewHolder.price.setText(data.get(position).getPrice());
             }
             return convertView;
         }

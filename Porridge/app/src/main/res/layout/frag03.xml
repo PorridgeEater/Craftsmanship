@@ -3,26 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@color/colorPrimary">
-
-    <Button
-        android:layout_gravity="end"
-        android:id="@+id/submit_article"
-        android:layout_width="55dp"
-        android:layout_height="40dp"
-        android:text="发布"
-        android:background="@drawable/post_button"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="15dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,8 +13,8 @@
         <EditText
             android:id="@+id/article"
             android:inputType="textMultiLine"
-            android:minLines="4"
-            android:maxLines="8"
+            android:minLines="3"
+            android:maxLines="5"
             android:layout_width="297dp"
             android:layout_height="wrap_content"
             android:hint="添加描述..." />
@@ -49,7 +29,73 @@
             android:text="添加图片"
             android:src="@drawable/choose_pic"
             android:nestedScrollingEnabled="false" />
+    </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:clickable="true"
+        android:id="@+id/editType"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:id="@+id/type"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/inputType"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:padding="8dp"
+                android:text="选择种类"
+                android:layout_gravity="center"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+            <Spinner
+                android:id="@+id/type_choose"
+                android:layout_width="40dp"
+                android:layout_height="40dp">
+
+            </Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:id="@+id/editPrice"
+            >
+
+            <TextView
+                android:id="@+id/price_input"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:padding="8dp"
+                android:layout_marginLeft="25dp"
+                android:text="输入价格:"
+                android:textColor="#000"
+                android:textSize="17sp"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/price"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:digits="1234567890."
+                android:singleLine="true"
+                android:hint="￥0.00"
+
+                />
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -57,8 +103,31 @@
         android:id="@+id/pic_grid"
         android:layout_margin="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="260dp"
         android:numColumns="3">
 
     </GridView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <Button
+            android:layout_gravity="end"
+            android:id="@+id/submit_article"
+            android:layout_width="fill_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_height="40dp"
+            android:text="发 布"
+            android:background="@drawable/post_button"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
 </LinearLayout>

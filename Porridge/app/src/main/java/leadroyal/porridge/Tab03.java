@@ -17,11 +17,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -31,9 +35,12 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.SaveCallback;
 
+import org.w3c.dom.Text;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Tab03 extends Fragment implements View.OnClickListener, AdapterView.OnItemLongClickListener {
 
@@ -47,11 +54,40 @@ public class Tab03 extends Fragment implements View.OnClickListener, AdapterView
     private GridAdapter mAdapter;
     private AVObject article;
     private AVFile avFile[] = new AVFile[9];
+    private TextView price;
 
+//
+//    private ArrayList<SpinnerOption> typelist;
+//    private Spinner typeSp;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag03, null);
+
+//
+//        typelist = new ArrayList<SpinnerOption>();
+//        SpinnerOption x;
+//        x = new SpinnerOption(1+"", 1 + " 茶器");
+//        typelist.add(x);
+//        x = new SpinnerOption(2+"", 2 + " 文房");
+//        typelist.add(x);
+//        x = new SpinnerOption(3+"", 3 + " 包");
+//        typelist.add(x);
+//        x = new SpinnerOption(4+"", 4 + " 银器");
+//        typelist.add(x);
+//        x = new SpinnerOption(5+"", 5 + " 禅");
+//        typelist.add(x);
+//        x = new SpinnerOption(6+"", 6 + " 手镯");
+//        typelist.add(x);
+//        x = new SpinnerOption(7+"", 7 + " 花器");
+//        typelist.add(x);
+//        x = new SpinnerOption(8+"", 8 + " 紫砂")
+//        typelist.add(x);
+//        x = new SpinnerOption(9+"", 9 + " 雕刻")
+//        typelist.add(x);
+//
+//        typeSp = (Spinner)view.findViewById(R.id.type_choose);
+//
         initView(view);
         initAdapter();
         return view;
@@ -67,7 +103,8 @@ public class Tab03 extends Fragment implements View.OnClickListener, AdapterView
         mImg = (ImageButton) v.findViewById(R.id.img_bt);
         mEditText = (EditText) v.findViewById(R.id.article);
         submit = (Button) v.findViewById(R.id.submit_article);
-
+        price = (EditText) v.findViewById(R.id.price);
+        price.setInputType(EditorInfo.TYPE_CLASS_PHONE);
         mImg.setOnClickListener(this);
         mGridView.setOnItemLongClickListener(this);
         submit.setOnClickListener(this);
@@ -84,6 +121,7 @@ public class Tab03 extends Fragment implements View.OnClickListener, AdapterView
             if (!mEditText.getText().toString().trim().isEmpty()) {
                 article = new AVObject("Article");
                 article.put("content", mEditText.getText().toString());
+                article.put("price", "￥"+price.getText().toString());
                 String user = AVUser.getCurrentUser().getUsername();
                 article.put("user", user);
                 mEditText.setText("");
@@ -107,19 +145,19 @@ public class Tab03 extends Fragment implements View.OnClickListener, AdapterView
                     @Override
                     public void done(AVException e) {
                         if (e == null) {
-                            Toast.makeText(getContext(), "SUCCESS", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getContext(), "发布成功", Toast.LENGTH_LONG).show();
                         } else {
-                            Log.d("LEADROYAL", e.getMessage());
                             Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                         }
                         picArray.clear();
                         //pathArray.clear();
                         mAdapter.notifyDataSetChanged();
                         mEditText.setText("");
+                        price.setText("");
                     }
                 });
             }
-        } else ;
+        }
     }
 
     @Override

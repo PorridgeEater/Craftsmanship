@@ -22,12 +22,6 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity"
-            android:logo="@mipmap/ic_launcher"
-            android:screenOrientation="locked">
-        </activity>
-
-        <activity
             android:name=".Guide"
             android:screenOrientation="locked">
             <intent-filter>
@@ -37,12 +31,12 @@
             </intent-filter>
         </activity>
 
-
         <activity
             android:name=".Register"
             android:parentActivityName=".Guide"
             android:screenOrientation="locked">
         </activity>
+
         <activity
             android:name=".Login"
             android:parentActivityName=".Guide"
@@ -50,8 +44,17 @@
         </activity>
 
         <activity
+            android:name=".MainActivity"
+            android:logo="@mipmap/ic_launcher"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+
+        <activity
             android:name=".NoticeDetail"
-            android:screenOrientation="locked"/>
+            android:screenOrientation="locked">
+        </activity>
+
     </application>
 
 </manifest>

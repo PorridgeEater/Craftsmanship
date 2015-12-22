@@ -8,7 +8,7 @@ import com.avos.avoscloud.AVObject;
 public class NoticeEntity {
     private String[] imageSrc = new String[9];
     private String txt = "";
-    private int price = 0;
+    private String price = "";
     private AVObject avo = null;
 
     public void setImageSrc(String imageSrc, int pos) {
@@ -23,7 +23,7 @@ public class NoticeEntity {
         this.avo = avo;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -39,7 +39,7 @@ public class NoticeEntity {
         return avo;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 }

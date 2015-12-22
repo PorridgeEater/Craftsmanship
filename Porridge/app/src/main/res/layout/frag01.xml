@@ -4,36 +4,40 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="发 现"
+        android:textSize="25dp">
+    </TextView>
+
+    <GridView
+        android:layout_marginTop="5dp"
+        android:id="@+id/notice_grid"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:numColumns="1">
+    </GridView>
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="55dp"
-        android:background="@color/colorPrimary">
-
+        android:layout_height="55dp">
         <Button
-            android:layout_gravity="end"
+            android:layout_gravity="center"
             android:id="@+id/refresh_bt"
-            android:layout_width="55dp"
-            android:layout_height="40dp"
-            android:text="刷新"
-            android:background="@drawable/post_button"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:text="刷 新"
+            android:background="@drawable/post_button"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
     </RelativeLayout>
-
-
-    <GridView
-        android:layout_marginTop="5dp"
-        android:id="@+id/notice_grid"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:numColumns="1">
-
-    </GridView>
 </LinearLayout>
