@@ -55,6 +55,11 @@
             android:screenOrientation="locked">
         </activity>
 
+        <activity
+            android:name=".CategoryList"
+            android:screenOrientation="locked">
+        </activity>
+
     </application>
 
 </manifest>

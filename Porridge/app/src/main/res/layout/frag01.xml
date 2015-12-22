@@ -13,12 +13,18 @@
         android:textSize="25dp">
     </TextView>
 
-    <GridView
-        android:layout_marginTop="5dp"
+    <GridView xmlns:Android="http://schemas.android.com/apk/res/android"
         android:id="@+id/notice_grid"
-        android:layout_width="match_parent"
-        android:layout_height="380dp"
-        android:numColumns="1">
+        Android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="360dp"
+        android:numColumns="auto_fit"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="1dp"
+        android:columnWidth="90dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center">
+
     </GridView>
 
     <RelativeLayout
@@ -27,7 +33,7 @@
         <Button
             android:layout_gravity="center"
             android:id="@+id/refresh_bt"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_width="fill_parent"
