@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
@@ -42,8 +43,8 @@ public class Tab01 extends Fragment implements View.OnClickListener {
         initView(view);
         initAdapter();
         //new ImageLoaderConfiguration();
-
-        refressh_bt.performClick();
+        refresh();
+//        refressh_bt.performClick();
         return view;
     }
 
@@ -75,6 +76,7 @@ public class Tab01 extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         refresh();
+        Toast.makeText(getContext(), "刷新中...", Toast.LENGTH_SHORT).show();
     }
 
     private void refresh() {

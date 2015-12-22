@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (select) {
             case 1:
-                bottom1.setTextColor(getResources().getColor(R.color.colorPrimary));
+                bottom1.setTextColor(getResources().getColor(R.color.red));
                 if (mTab1 == null) {
                     mTab1 = new Tab01();
                     transaction.add(R.id.id_content, mTab1);
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 imb1.setImageResource(R.drawable.tab01_pressed);
                 break;
             case 2:
-                bottom2.setTextColor(getResources().getColor(R.color.colorPrimary));
+                bottom2.setTextColor(getResources().getColor(R.color.red));
                 if (mTab2 == null) {
                     mTab2 = new Tab02();
                     transaction.add(R.id.id_content, mTab2);
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 imb2.setImageResource(R.drawable.tab02_pressed);
                 break;
             case 3:
-                bottom3.setTextColor(getResources().getColor(R.color.colorPrimary));
+                bottom3.setTextColor(getResources().getColor(R.color.red));
                 if (mTab3 == null) {
                     mTab3 = new Tab03();
                     transaction.add(R.id.id_content, mTab3);
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 imb3.setImageResource(R.drawable.tab03_pressed);
                 break;
             case 4:
-                bottom4.setTextColor(getResources().getColor(R.color.colorPrimary));
+                bottom4.setTextColor(getResources().getColor(R.color.red));
                 if (mTab4 == null) {
                     mTab4 = new Tab04();
                     transaction.add(R.id.id_content, mTab4);
@@ -150,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 imb4.setImageResource(R.drawable.tab04_pressed);
                 break;
             case 5:
+                bottom5.setTextColor(getResources().getColor(R.color.red));
                 if (mTab5 == null) {
                     mTab5 = new Tab05();
                     transaction.add(R.id.id_content, mTab5);

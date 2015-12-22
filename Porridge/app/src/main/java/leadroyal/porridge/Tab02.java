@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,7 +32,7 @@ import java.util.List;
 
 
 public class Tab02 extends Fragment implements View.OnClickListener {
-
+    private Button refressh_bt2;
     private GridView mGridView;
     private NoticeAdapter mAdapter;
     private ArrayList<NoticeEntity> mDataArray = new ArrayList<>();
@@ -57,6 +58,8 @@ public class Tab02 extends Fragment implements View.OnClickListener {
 
     private void initView(View v) {
         mGridView = (GridView) v.findViewById(R.id.notice_grid);
+        refressh_bt2 = (Button) v.findViewById(R.id.refresh_bt2);
+        refressh_bt2.setOnClickListener(this);
 
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -75,6 +78,7 @@ public class Tab02 extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         refresh();
+        Toast.makeText(getContext(), "刷新中...", Toast.LENGTH_SHORT).show();
     }
 
     private void refresh() {
