@@ -3,6 +3,7 @@ package leadroyal.porridge;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -77,10 +78,9 @@ public class NoticeDetail extends AppCompatActivity implements View.OnClickListe
             public void done(int count, AVException e) {
                 if (e == null) {
                     // The count request succeeded. Log the count
-                    Log.d("succeeded", "LeanCloud官方客服 发布了 " + count + " 条微博");
                     if (count != 0) {
                         like.setEnabled(false);
-                        like.setText("已经like过");
+                        like.setBackground(getDrawable(R.drawable.heart_selected));
                     }
                 } else {
                     // The request failed
@@ -151,7 +151,7 @@ public class NoticeDetail extends AppCompatActivity implements View.OnClickListe
                     Log.d("lead---->", "查询到" + list.size() + "个评论");
                     String s = "";
                     for (int i = 0; i < list.size(); i++) {
-                        s = s + i + "L   " + list.get(i).getString("user") + '\n' + list.get(i).getString("content") + '\n';
+                        s = s + i + "L   " + list.get(i).getString("user") + '\n' + list.get(i).getString("content") + "\n\n";
                     }
                     mTextView.setText(s);
                 }
@@ -166,7 +166,7 @@ public class NoticeDetail extends AppCompatActivity implements View.OnClickListe
         relation.put("Article", avo);
         relation.saveInBackground();
         like.setEnabled(false);
-        like.setText("已经like过");
+        like.setBackground(getDrawable(R.drawable.heart_selected));
     }
 
     private class NoticeDetailAdapter extends BaseAdapter {

@@ -82,19 +82,6 @@ public class Tab02 extends Fragment implements View.OnClickListener {
     }
 
     private void refresh() {
-//        List<AVObject> folloees;
-//
-//        AVQuery<AVObject> query = new AVQuery<>("PersonToPerson");
-//        query.whereEqualTo("follower", AVUser.getCurrentUser());
-//        query.findInBackground(new FindCallback<AVObject>() {
-//            @Override
-//            public void done(List<AVObject> list, AVException e) {
-//                if (e == null) {
-//                    folloees = list;
-//                }
-//            }
-//        });
-
         final List<String> idArray = new ArrayList<>();
         AVQuery<AVObject> query_before = new AVQuery<>("PersonToArticle");
         query_before.whereEqualTo("user", AVUser.getCurrentUser());

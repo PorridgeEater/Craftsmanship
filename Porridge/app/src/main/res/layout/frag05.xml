@@ -95,8 +95,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/num_button"
 
-                    android:textSize="18sp"
-                    android:text="200"
+                    android:textSize="38sp"
+                    android:text="0"
                     android:gravity="center"
                     android:textColor="@color/white"/>
 
@@ -124,8 +124,8 @@
                     android:layout_height="100dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/num_button"
-                    android:textSize="18sp"
-                    android:text="100"
+                    android:textSize="38sp"
+                    android:text="0"
                     android:gravity="center"
                     android:textColor="@color/white"/>
 
@@ -158,10 +158,10 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginTop="15dp"
-                    android:textSize="18sp"
+                    android:textSize="38sp"
                     android:gravity="center"
                     android:background="@drawable/num_button"
-                    android:text="300"
+                    android:text="0"
                     android:textColor="@color/white"/>
 
                 <TextView
@@ -186,8 +186,8 @@
                     android:layout_height="100dp"
                     android:layout_marginTop="15dp"
                     android:gravity="center"
-                    android:textSize="18sp"
-                    android:text="500"
+                    android:textSize="38sp"
+                    android:text="0"
                     android:background="@drawable/num_button"
                     android:textColor="@color/white"/>
 

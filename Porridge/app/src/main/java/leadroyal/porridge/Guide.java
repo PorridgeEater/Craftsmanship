@@ -60,7 +60,7 @@ public class Guide extends Activity implements ViewPager.OnPageChangeListener{
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent j = new Intent(Guide.this, Login.class);
+                Intent j = new Intent(Guide.this, MainActivity.class);
                 startActivity(j);
 //                finish();
             }

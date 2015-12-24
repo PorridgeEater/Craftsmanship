@@ -16,6 +16,7 @@
 
         <ImageView
             android:id="@+id/id_tab01_img"
+            android:layout_marginTop="2dp"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -43,6 +44,7 @@
 
         <ImageView
             android:id="@+id/id_tab02_img"
+            android:layout_marginTop="2dp"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -70,6 +72,7 @@
 
         <ImageView
             android:id="@+id/id_tab03_img"
+            android:layout_marginTop="2dp"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -98,6 +101,7 @@
 
         <ImageView
             android:id="@+id/id_tab04_img"
+            android:layout_marginTop="2dp"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -129,11 +133,12 @@
             android:id="@+id/id_tab05_img"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
+            android:layout_marginTop="2dp"
             android:layout_weight="1"
             android:background="#00000000"
             android:clickable="false"
             android:scaleType="fitCenter"
-            android:src="@drawable/tab04_normal" />
+            android:src="@drawable/tab05_normal" />
 
         <TextView
             android:id="@+id/bottom_tv5"

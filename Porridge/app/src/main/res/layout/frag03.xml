@@ -54,17 +54,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:padding="8dp"
-                android:text="选择种类"
+                android:text="填写类别"
                 android:layout_gravity="center"
                 android:textColor="#000"
                 android:textSize="17sp" />
 
-            <Spinner
+            <EditText
                 android:id="@+id/type_choose"
-                android:layout_width="40dp"
-                android:layout_height="40dp">
-
-            </Spinner>
+                android:layout_width="92dp"
+                android:layout_height="40dp"
+                android:singleLine="true"
+                android:hint="tea, carve"
+                />
 
         </LinearLayout>
 
@@ -80,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:padding="8dp"
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="8dp"
                 android:text="输入价格:"
                 android:textColor="#000"
                 android:textSize="17sp"
@@ -88,7 +89,7 @@
 
             <EditText
                 android:id="@+id/price"
-                android:layout_width="80dp"
+                android:layout_width="75dp"
                 android:layout_height="40dp"
                 android:digits="1234567890."
                 android:singleLine="true"

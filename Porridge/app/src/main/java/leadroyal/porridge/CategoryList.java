@@ -5,8 +5,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
@@ -27,11 +30,12 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryList extends Activity implements View.OnClickListener {
-
+public class CategoryList extends AppCompatActivity implements View.OnClickListener {
     private Button refressh_bt;
     private GridView mGridView;
     private NoticeAdapter mAdapter;
@@ -45,37 +49,18 @@ public class CategoryList extends Activity implements View.OnClickListener {
 
         super.onCreate(savedInstanceState);
 
-
-
-        View view = getLayoutInflater().inflate(R.layout.frag01, null);
-
+        View view = getLayoutInflater().inflate(R.layout.frag02, null);
 
         setContentView(view);
-
-//        ActionBar actionbar = getActionBar();
-//        actionbar.setDisplayHomeAsUpEnabled(true);
 
         Bundle bundle = getIntent().getExtras();
         selectedCategory = bundle.getInt("selectedCategory");
 
-
         initView(view);
         initAdapter();
         //new ImageLoaderConfiguration();
-
-        refressh_bt.performClick();
+        refresh();
     }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()){
-//            case ActionBar.DISPLAY_HOME_AS_UP:
-//                this.finish();
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//
-//    }
 
     private void initAdapter() {
         mAdapter = new NoticeAdapter(this.getApplicationContext(), mDataArray);
@@ -85,7 +70,7 @@ public class CategoryList extends Activity implements View.OnClickListener {
 
     private void initView(View v) {
         mGridView = (GridView) v.findViewById(R.id.notice_grid);
-        refressh_bt = (Button) v.findViewById(R.id.refresh_bt);
+        refressh_bt = (Button) v.findViewById(R.id.refresh_bt2);
 
         refressh_bt.setOnClickListener(this);
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -104,6 +89,7 @@ public class CategoryList extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         refresh();
+        Toast.makeText(getApplicationContext(), "刷新中...", Toast.LENGTH_SHORT).show();
     }
 
     private void refresh() {
@@ -125,6 +111,7 @@ public class CategoryList extends Activity implements View.OnClickListener {
                                         entity.setImageSrc(list.get(i).getAVFile(s[j]).getUrl(), j);
                                 entity.setAVO(list.get(i));
                                 entity.setTxt(list.get(i).getString("content"));
+                                entity.setPrice(list.get(i).getString("price"));
                                 mDataArray.add(entity);
                             }
                             mAdapter.notifyDataSetChanged();
@@ -178,6 +165,7 @@ public class CategoryList extends Activity implements View.OnClickListener {
             final ViewHolder viewHolder = new ViewHolder();
             ImageLoaderConfiguration mConfig = new ImageLoaderConfiguration.Builder(getApplicationContext()).build();
 
+            viewHolder.title = (TextView) findViewById(R.id.like_title);
             convertView = inflater.inflate(R.layout.notice_layout, parent, false);
             viewHolder.imgView = (ImageView) convertView.findViewById(R.id.picpic);
             viewHolder.txt = (TextView) convertView.findViewById(R.id.txttxt);
@@ -189,8 +177,12 @@ public class CategoryList extends Activity implements View.OnClickListener {
                 mLoader.init(mConfig);
                 mLoader.getInstance()
                         .displayImage(data.get(position).getImageSrc(0), viewHolder.imgView, options, null);
+                viewHolder.txt.setTextColor(Color.rgb(0, 0, 0));
+                viewHolder.price.setTextColor(Color.rgb(0, 0, 0));
+                String scan = "浏 览";
+                viewHolder.title.setText(scan);
                 viewHolder.txt.setText(data.get(position).getTxt());
-                viewHolder.price.setText("￥" + data.get(position).getPrice());
+                viewHolder.price.setText(data.get(position).getPrice());
             }
             return convertView;
         }
@@ -200,6 +192,7 @@ public class CategoryList extends Activity implements View.OnClickListener {
         public ImageView imgView;
         public TextView txt;
         public TextView price;
+        public TextView title;
     }
 
 }

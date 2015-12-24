@@ -54,6 +54,7 @@ public class Tab03 extends Fragment implements View.OnClickListener, AdapterView
     private GridAdapter mAdapter;
     private AVObject article;
     private AVFile avFile[] = new AVFile[9];
+    private TextView typelist;
     private TextView price;
 
 //
@@ -63,7 +64,6 @@ public class Tab03 extends Fragment implements View.OnClickListener, AdapterView
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag03, null);
-
 //
 //        typelist = new ArrayList<SpinnerOption>();
 //        SpinnerOption x;
@@ -104,6 +104,7 @@ public class Tab03 extends Fragment implements View.OnClickListener, AdapterView
         mEditText = (EditText) v.findViewById(R.id.article);
         submit = (Button) v.findViewById(R.id.submit_article);
         price = (EditText) v.findViewById(R.id.price);
+        typelist = (EditText) v.findViewById(R.id.type_choose);
         price.setInputType(EditorInfo.TYPE_CLASS_PHONE);
         mImg.setOnClickListener(this);
         mGridView.setOnItemLongClickListener(this);
@@ -121,6 +122,7 @@ public class Tab03 extends Fragment implements View.OnClickListener, AdapterView
             if (!mEditText.getText().toString().trim().isEmpty()) {
                 article = new AVObject("Article");
                 article.put("content", mEditText.getText().toString());
+                article.put("type", typelist.getText().toString());
                 article.put("price", "￥"+price.getText().toString());
                 String user = AVUser.getCurrentUser().getUsername();
                 article.put("user", user);
@@ -154,6 +156,7 @@ public class Tab03 extends Fragment implements View.OnClickListener, AdapterView
                         mAdapter.notifyDataSetChanged();
                         mEditText.setText("");
                         price.setText("");
+                        typelist.setText("");
                     }
                 });
             }

@@ -19,5 +19,6 @@
     <string name="action_register">注册</string>
     <string name="register_hint">使用邮箱或自定义ID注册</string>
     <string name="action_log_out">注销</string>
-
+    <string name="title_activity_general_message_list">GeneralMessageList</string>
+    <string name="hello_world">Hello world!</string>
 </resources>

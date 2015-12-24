@@ -56,11 +56,6 @@ public class Tab05 extends Fragment implements View.OnClickListener {
 
         p_info.setText(s[2]);
 
-        p_post.setText(s[3]);
-        p_like.setText(s[4]);
-        p_comment.setText(s[5]);
-        p_fan.setText(s[6]);
-
         return view;
     }
 
@@ -81,9 +76,11 @@ public class Tab05 extends Fragment implements View.OnClickListener {
                 else {
                     s[3] = "" + 0;
                 }
+                p_post.setText(s[3]);
             }
         });
-//        Toast.makeText(getContext(), "文章数"+s[3], Toast.LENGTH_SHORT).show();
+
+
 
         ////累计like数
         AVQuery<AVObject> query2 = new AVQuery<>("PersonToArticle");
@@ -96,12 +93,13 @@ public class Tab05 extends Fragment implements View.OnClickListener {
                 else {
                     s[4] = "" + 0;
                 }
+                p_like.setText(s[4]);
             }
         });
 
 
         ////累计comment
-        AVQuery<AVObject> query3 = new AVQuery<>("PersonToArticle");
+        AVQuery<AVObject> query3 = new AVQuery<>("Comment");
         query3.whereEqualTo("user", s[0]);
         query3.countInBackground(new CountCallback() {
             @Override
@@ -111,6 +109,7 @@ public class Tab05 extends Fragment implements View.OnClickListener {
                 else {
                     s[5] = ""+0;
                 }
+                p_comment.setText(s[5]);
             }
         });
 
@@ -125,6 +124,7 @@ public class Tab05 extends Fragment implements View.OnClickListener {
                 else {
                     s[6] = ""+0;
                 }
+                p_fan.setText(s[6]);
             }
         });
     }

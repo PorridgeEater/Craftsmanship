@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
+        android:id="@+id/like_title"
         android:text="我 的 关 注"
         android:textSize="25dp">
     </TextView>
